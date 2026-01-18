@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>我的宝藏收藏站</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: "微软雅黑", sans-serif; max-width: 900px; margin: 2rem auto; padding: 0 15px; background: #f8f9fa; }
+    h1 { color: #222; text-align: center; margin-bottom: 2rem; padding-bottom: 10px; border-bottom: 2px solid #eee; }
+    /* 搜索框样式 */
+    .search-box { width: 100%; padding: 12px 15px; border: 1px solid #ddd; border-radius: 8px; margin-bottom: 2rem; font-size: 1rem; outline: none; }
+    .search-box:focus { border-color: #6699cc; }
+    .category { margin: 2rem 0; }
+    .category h2 { color: #333; margin-bottom: 1rem; font-size: 1.3rem; padding-left: 8px; border-left: 4px solid #6699cc; }
+    .item { padding: 12px 15px; border: 1px solid #eee; border-radius: 8px; margin-bottom: 10px; background: #fff; transition: all 0.2s; }
+    .item:hover { border-color: #ddd; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
+    .item a { color: #2563eb; text-decoration: none; font-size: 1rem; font-weight: 500; }
+    .item a:hover { text-decoration: underline; color: #1d4ed8; }
+    .item p { color: #666; margin-top: 6px; font-size: 0.9rem; line-height: 1.5; }
+  </style>
+</head>
+<body>
+  <h1>✨ 我的专属收藏夹 ✨</h1>
+  <!-- 搜索框 - 自动生效，不用改任何代码 -->
+  <input type="text" class="search-box" placeholder="输入关键词搜索收藏内容...">
+
+  <!-- 分类1：前端学习干货（你学前端专用） -->
+  <div class="category">
+    <h2>📚 前端学习 | 干货资源</h2>
+    <div class="item">
+      <a href="https://www.bilibili.com/" target="_blank">B站前端免费教程</a>
+      <p>零基础HTML/CSS/JS全套，边学边练超适合新手</p>
+    </div>
+    <div class="item">
+      <a href="https://developer.mozilla.org/zh-CN/" target="_blank">MDN前端官方文档</a>
+      <p>最权威的前端手册，学前端必看，查语法神器</p>
+    </div>
+  </div>
+
+  <!-- 分类2：生活好物收藏 -->
+  <div class="category">
+    <h2>🍵 生活好物 | 宝藏推荐</h2>
+    <div class="item">
+      <a href="#" target="_blank">普洱熟茶优质店铺</a>
+      <p>温性养胃，日常饮用的靠谱选择</p>
+    </div>
+    <div class="item">
+      <a href="#" target="_blank">炒肉臊子万能配方</a>
+      <p>肉嫩不柴不发苦，辣椒面下锅时机精准版</p>
+    </div>
+  </div>
+
+  <!-- 分类3：可以自己加！比如 电影/音乐/美食 -->
+  <div class="category">
+    <h2>🎬 影视综艺 | 高分收藏</h2>
+    <div class="item">
+      <a href="#" target="_blank">高分纪录片合集</a>
+      <p>治愈系，适合放松的时候看</p>
+    </div>
+  </div>
+
+  <!-- 搜索功能JS - 已经写好，复制即用，不用修改！ -->
+  <script>
+    const searchInput = document.querySelector('.search-box');
+    searchInput.addEventListener('input', function() {
+      const keyword = this.value.trim();
+      const allItems = document.querySelectorAll('.item');
+      allItems.forEach(item => {
+        const itemText = item.textContent.toLowerCase();
+        if(itemText.includes(keyword.toLowerCase())){
+          item.style.display = 'block';
+        } else {
+          item.style.display = 'none';
+        }
+      })
+    })
+  </script>
+</body>
+</html>
